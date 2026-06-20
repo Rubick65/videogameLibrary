@@ -6,14 +6,15 @@
         width: 100vw;
     }
 
-    #login-title{
+    #register-title{
         font-size: 30px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         color: white;
+        outline: none;
 
     }
 
-    .login-container{
+    .register-container{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -26,7 +27,7 @@
         border: none;
     }
 
-    .login-form{
+    .register-form{
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -40,14 +41,21 @@
         border-radius: 5px;
     }
 
-    .login-button{
+    .register-button{
         padding: 10px;
-        background-color: #007bff;
+        background-color: rgb(225, 64, 158);
         font-size: 16px;
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+    }
+
+    .register-button:hover{
+        transform: scale(1.03);
+    }
+    .register-button:active{
+        transform: scale(0.97);
     }
     
     .form-group {
