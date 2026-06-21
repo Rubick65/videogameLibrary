@@ -1,8 +1,9 @@
     :host{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
     }
 
@@ -24,12 +25,18 @@
         background: linear-gradient(-70deg, rgba(177, 99, 255, 0.7), rgba(127, 0, 255, 0.7));
         backdrop-filter: blur(10px);
         border: none;
+        margin-top: 20px;
+        margin-bottom: 100px;
     }
 
     .login-form{
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 100%;
+        width: 300px;
+        overflow-wrap: break-word; 
+        word-wrap: break-word;
     }
 
     .form-input{
@@ -38,11 +45,12 @@
         font-size: 16px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        width: 85%;
     }
 
     .login-button{
-        padding: 10px;
-        background-color: #007bff;
+         padding: 10px;
+        background-color: rgb(225, 64, 158);
         font-size: 16px;
         color: white;
         border: none;
@@ -50,9 +58,19 @@
         cursor: pointer;
     }
     
+    .login-button:hover{
+        transform: scale(1.03);
+    }
+    .login-button:active{
+        transform: scale(0.97);
+    }
+    
     .form-group {
         position: relative;
     }
 
+    .error_message{
+        color: red;
+    }
    
 

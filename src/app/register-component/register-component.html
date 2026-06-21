@@ -1,17 +1,25 @@
 <div class="register-container"> 
     <h2 id="register-title">Register</h2>
     
-    <form class="register-form">
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-      <div class="form-group">
+      <div class="form-group" >
         <i class="fas fa-user" id="username" style="
           position:absolute;
           margin-left: 15px;
           top: 14px;
           font-size: 20px;
           "></i>
-        <input type="text" id="username" name="username" placeholder="Username" class="form-input" required>
+        <input type="text" id="username" name="username" placeholder="Username" class="form-input" formControlName="username" 
+        (input)="checkUserNameError()"  
+        (blur)="checkUserNameError()" required>
       </div>
+
+      @if ((userErrorMessage())) {
+        <div class="error_message"> 
+        {{ userErrorMessage() }}
+      </div>
+      }
       
 
       <div class="form-group">
@@ -21,8 +29,16 @@
           top: 14px;
           font-size: 20px;
           "></i>
-        <input type="email" id="email" name="email" placeholder="Email" class="form-input" required>
+        <input type="email" id="email" name="email" placeholder="Email" class="form-input"  formControlName="email" 
+        (input)="checkEmailErrors()" 
+        (blur)="checkAllEmailErrors()" required>
       </div>
+
+      @if ((emailErrorMessage())) {
+        <div class="error_message"> 
+        {{ emailErrorMessage() }}
+      </div>
+      }
       
       <div class="form-group">
         <i class="fas fa-lock" style="
@@ -31,8 +47,16 @@
           top: 14px;
           font-size: 20px;
           "></i>
-        <input type="password" id="password" name="password" placeholder="Password" class="form-input" required>
+        <input type="password" id="password" name="password" placeholder="Password" class="form-input"  formControlName="password"
+        (input)="checkPasswordError()" 
+        (blur)="checkAllPasswordErrors()" required>
       </div>
+
+       @if ((passwordErrorMessage())) {
+        <div class="error_message"> 
+        {{ passwordErrorMessage() }}
+      </div>
+      }
 
        <div class="form-group">
         <i class="fas fa-lock" style="
@@ -41,9 +65,17 @@
           top: 14px;
           font-size: 20px;
           "></i>
-        <input type="password" id="password" name="password" placeholder="Confirm Password" class="form-input" required>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="form-input"  formControlName="confirmPassword" 
+        (input)="checkPasswordMatch()" 
+        (blur)="checkPasswordMatch()" required>
       </div>
 
-      <button type="submit" class="register-button">Sign Up</button>
+      @if (confirmPaswordErrorMessage()) {
+        <div class="error_message"> 
+        {{ confirmPaswordErrorMessage() }}
+      </div>
+      }
+
+      <button type="submit" class="register-button" (click)="checkAllErrors()">Sign Up</button>
     </form> 
-</div>
+</div>  

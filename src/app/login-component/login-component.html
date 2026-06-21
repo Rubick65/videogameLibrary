@@ -1,9 +1,8 @@
 <div class="login-container"> 
     <h2 id="login-title">Login</h2>
     
-    <form class="login-form">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-  
       <div class="form-group">
         <i class="fas fa-envelope" style="
           position:absolute;
@@ -11,9 +10,18 @@
           top: 14px;
           font-size: 20px;
           "></i>
-        <input type="email" id="email" name="email" placeholder="Email" class="form-input" required>
+        <input type="email" id="email" name="email" placeholder="Email" class="form-input" formControlName="email" 
+         (input)="checkEmailErrors()" 
+         (blur)="checkAllEmailErrors()" 
+         required>
       </div>
-      
+
+      @if (emailErrorMessage()) {
+        <div class="error_message"> 
+        {{ emailErrorMessage() }}
+      </div>
+      }
+       
       <div class="form-group">
         <i class="fas fa-lock" style="
           position:absolute;
@@ -21,9 +29,18 @@
           top: 14px;
           font-size: 20px;
           "></i>
-        <input type="password" id="password" name="password" placeholder="Password" class="form-input" required>
+        <input type="password" id="password" name="password" placeholder="Password" class="form-input" formControlName="password" 
+        (input)="checkPasswordError()"
+        (blur)="checkPasswordError()"
+        required>
       </div>
 
-      <button type="submit" class="login-button">Login</button>
+      @if (passwordErrorMessage()) {
+        <div class="error_message"> 
+        {{ passwordErrorMessage() }}
+      </div>
+      }
+
+      <button type="submit" class="login-button" (click)=" checkAllErrors() ">Login</button>
     </form> 
 </div>

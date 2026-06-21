@@ -1,8 +1,9 @@
     :host{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
     }
 
@@ -25,12 +26,18 @@
         background: linear-gradient(-70deg, rgba(177, 99, 255, 0.7), rgba(127, 0, 255, 0.7));
         backdrop-filter: blur(10px);
         border: none;
+        margin-top: 20px;
+        margin-bottom: 100px;
     }
 
     .register-form{
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 100%;
+        width: 300px;
+        overflow-wrap: break-word; 
+        word-wrap: break-word;
     }
 
     .form-input{
@@ -39,6 +46,7 @@
         font-size: 16px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        width: 85%;
     }
 
     .register-button{
@@ -62,5 +70,6 @@
         position: relative;
     }
 
-   
-
+    .error_message{
+        color: red;
+    }
