@@ -1,5 +1,4 @@
-<div class="register-container"> 
-    <h2 id="register-title">Register</h2>
+<app-auth-container title="Register" linkRouter="" linkText="Log In" >
     
     <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
@@ -78,4 +77,5 @@
 
       <button type="submit" class="register-button" (click)="checkAllErrors()">Sign Up</button>
     </form> 
-</div>  
+
+</app-auth-container>

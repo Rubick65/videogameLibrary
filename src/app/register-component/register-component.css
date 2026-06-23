@@ -7,29 +7,6 @@
         width: 100vw;
     }
 
-    #register-title{
-        font-size: 30px;
-        margin-bottom: 30px;
-        color: white;
-        outline: none;
-
-    }
-
-    .register-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 1px solid #ccc;
-        padding: 20px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-        background: linear-gradient(-70deg, rgba(177, 99, 255, 0.7), rgba(127, 0, 255, 0.7));
-        backdrop-filter: blur(10px);
-        border: none;
-        margin-top: 20px;
-        margin-bottom: 100px;
-    }
-
     .register-form{
         display: flex;
         flex-direction: column;
@@ -73,3 +50,4 @@
     .error_message{
         color: red;
     }
+

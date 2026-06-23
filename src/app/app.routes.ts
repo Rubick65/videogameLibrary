@@ -11,13 +11,12 @@ export const routes: Routes = [
     },
     },
     {
-        path: "register",
-        loadComponent: () => {
-            return import("./register-component/register-component").then(
-                m => m.RegisterComponent
-            )
-        }
-
+    path: "register",
+    loadComponent: () => {
+        return import("./register-component/register-component").then(
+            m => m.RegisterComponent
+        )
+    }
     }
     
 ];
