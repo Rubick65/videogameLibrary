@@ -8,7 +8,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './auth-container.css',
 })
 export class AuthContainer {
-  title = input.required<string>();
-  linkRouter = input.required<string>();
+  title = input<string>();
+  linkRouter = input<string>();
   linkText = input<string>();
 }

@@ -17,6 +17,14 @@ export const routes: Routes = [
             m => m.RegisterComponent
         )
     }
+    },
+    {
+    path: "profileConfiguration",
+    loadComponent: () => {
+        return import("./profile-creation-component/profile-creation-component"  ).then(
+            m => m.ProfileCreationComponent
+        )
+    }
     }
     
 ];

@@ -1,18 +1,21 @@
-<app-auth-container title="Login" linkRouter="register" linkText="Create an account">
+<app-auth-container title="Login" linkRouter="profileConfiguration" linkText="Create an account">
     
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
       <div class="form-group">
+
         <i class="fas fa-envelope" style="
           position:absolute;
           margin-left: 15px;
           top: 14px;
           font-size: 20px;
           "></i>
+
         <input type="email" id="email" name="email" placeholder="Email" class="form-input" formControlName="email" 
          (input)="checkEmailErrors()" 
          (blur)="checkAllEmailErrors()" 
          required>
+
       </div>
 
       @if (emailErrorMessage()) {
@@ -22,16 +25,19 @@
       }
        
       <div class="form-group">
+
         <i class="fas fa-lock" style="
           position:absolute;
           margin-left: 15px;
           top: 14px;
           font-size: 20px;
           "></i>
+
         <input type="password" id="password" name="password" placeholder="Password" class="form-input" formControlName="password" 
         (input)="checkPasswordError()"
         (blur)="checkPasswordError()"
         required>
+        
       </div>
 
       @if (passwordErrorMessage()) {

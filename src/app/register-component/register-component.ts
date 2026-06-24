@@ -1,13 +1,11 @@
-  import { Component, input, signal } from '@angular/core';
-  import {FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { errorContext } from 'rxjs/internal/util/errorContext';
+import { Component, input, signal } from '@angular/core';
+import {FormGroup, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 import { AuthContainer } from '../components/auth-container/auth-container';
 
 
   @Component({
     selector: 'app-register-component',
-    imports: [ReactiveFormsModule, RouterLink, AuthContainer],
+    imports: [ReactiveFormsModule, AuthContainer],
     templateUrl: './register-component.html',
     styleUrl: './register-component.css',
   })
