@@ -8,6 +8,7 @@ import { AuthContainer } from "../components/auth-container/auth-container";
   styleUrls: ['./profile-creation-component.css'],
 })
 export class ProfileCreationComponent implements AfterViewInit {
+
   ngAfterViewInit(): void {
     const userProfileImage = document.getElementById('file_input');
 
