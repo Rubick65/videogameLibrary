@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthContainer } from '../components/auth-container/auth-container';
+import { GenericButtonComponent } from "../components/generic-button-component/generic-button-component";
+import { ErrorMessgeComponent } from '../components/error-messge-component/error-messge-component';
 
 @Component({
   selector: 'app-login-component',
-  imports: [ReactiveFormsModule, AuthContainer],
+  imports: [ReactiveFormsModule, AuthContainer, GenericButtonComponent, ErrorMessgeComponent],
   templateUrl: './login-component.html',
   styleUrl: './login-component.css',
 })
@@ -25,10 +27,11 @@ export class LoginComponent {
     /**
      * If all form components are valid submits information to server
      */
+    this.checkAllErrors();
 
-    // Values of all inputs in the form
-    const email = this.emailFormControl!.value || '';
-    const password = this.passwordFormControl!.value || '';
+    if (this.loginForm.invalid) {
+      return;
+    }
   }
 
   checkEmailErrors() {
@@ -40,7 +43,7 @@ export class LoginComponent {
     const emailControl = this.emailFormControl;
 
     // If email name exists, if blur is triggered and if it dosen´t meets validations
-    if (emailControl && emailControl.touched && emailControl.invalid) {
+    if (emailControl && emailControl.invalid) {
       if (emailControl!.hasError('required')) {
         this.emailErrorMessage.set('Email is required.');
         return;
@@ -92,7 +95,7 @@ export class LoginComponent {
     const control = this.passwordFormControl;
 
     // If password control exist, if is touched and invalid
-    if (control && control.touched && control.invalid) {
+    if (control && control.invalid) {
       if (control.hasError('required')) {
         this.passwordErrorMessage.set('Password is required.');
         return;

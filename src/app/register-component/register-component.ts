@@ -1,10 +1,12 @@
 import { Component, input, signal } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthContainer } from '../components/auth-container/auth-container';
+import { GenericButtonComponent } from "../components/generic-button-component/generic-button-component";
+import { ErrorMessgeComponent } from "../components/error-messge-component/error-messge-component";
 
 @Component({
   selector: 'app-register-component',
-  imports: [ReactiveFormsModule, AuthContainer],
+  imports: [ReactiveFormsModule, AuthContainer, GenericButtonComponent, ErrorMessgeComponent],
   templateUrl: './register-component.html',
   styleUrl: './register-component.css',
 })
@@ -31,14 +33,11 @@ export class RegisterComponent {
      * If all form components are valid submits information to server
      */
 
-    // Values of all inputs en the form
+    this.checkAllErrors()
 
-    this.checkPasswordMatch();
-
-    const username = this.usernameFormControl!.value || '';
-    const email = this.emailFormControl!.value || '';
-    const password = this.passwordFormControl!.value || '';
-    const confirmPassword = this.confirmPasswordFormControl!.value || '';
+    if(this.registerForm.invalid){
+      return
+    }
 
     this.registerForm.reset();
   }
@@ -147,7 +146,7 @@ export class RegisterComponent {
     // If password and confirm password exists
     if (confirmPasswordControl && passwordControl)  {
 
-      // Checks if password are the same
+      // Checks if password are
       if (confirmPasswordControl.value != passwordControl.value) {
         this.confirmPaswordErrorMessage.set('Passwords do not match.');
       } else {

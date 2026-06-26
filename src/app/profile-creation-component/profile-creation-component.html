@@ -11,7 +11,7 @@
     <input type="file" id="file_input" accept="image/*" style="display: none" hidden />
   </div>
 
-  <form id="profile_form">
+  <form id="profile_form" [formGroup]="userConfigurationForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <i
         class="fas fa-user"
@@ -25,9 +25,19 @@
         class="profile_input"
         formControlName="username"
         placeholder="Username"
+        (input)="checkUserNameErrors()"
+        (blur)="checkUserNameErrors()"
         required
       />
     </div>
+
+     @if (userNameErrorSignal()) {
+      <app-error-messge-component
+        errorMessage="{{ userNameErrorSignal() }}"
+      ></app-error-messge-component>
+    }
+
+   
 
     <div class="form-group">
       <i
@@ -36,15 +46,24 @@
       ></i>
 
       <textarea
-        form=""
+        form="profile_form"
         id="description"
         name="description"
         class="description_input"
         formControlName="description"
         placeholder="Tell us about you!"
         wrap="hard"
-        required
+        (input)="checkDescriptionErrors()"
+        (blur)="checkDescriptionErrors()"
       ></textarea>
     </div>
+
+    @if (descriptionErrorSignal()) {
+      <app-error-messge-component
+        errorMessage="{{ descriptionErrorSignal() }}"
+      ></app-error-messge-component>
+    }
+
+    <app-generic-button-component button_text="Continue"></app-generic-button-component>
   </form>
 </app-auth-container>

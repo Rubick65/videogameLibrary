@@ -1,13 +1,76 @@
-import { Component, AfterViewInit, input } from '@angular/core';
+import { Component, AfterViewInit, input, signal } from '@angular/core';
 import { AuthContainer } from '../components/auth-container/auth-container';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { GenericButtonComponent } from "../components/generic-button-component/generic-button-component";
+import { ErrorMessgeComponent } from '../components/error-messge-component/error-messge-component';
 
 @Component({
   selector: 'app-profile-creation-component',
-  imports: [AuthContainer],
+  imports: [AuthContainer, ReactiveFormsModule, GenericButtonComponent, ErrorMessgeComponent],
   templateUrl: './profile-creation-component.html',
   styleUrls: ['./profile-creation-component.css'],
 })
 export class ProfileCreationComponent implements AfterViewInit {
+  // Signals for input error messages
+  userNameErrorSignal = signal<string>('');
+  descriptionErrorSignal = signal<string>('');
+
+  // User profile configuration form inputs
+  userConfigurationForm = new FormGroup({
+    username: new FormControl('', [Validators.required, Validators.maxLength(12)]),
+    description: new FormControl('', [
+      Validators.required,
+      Validators.minLength(20),
+      Validators.maxLength(500),
+    ]),
+  });
+
+  checkUserNameErrors() {
+    /**
+     * Checks for invalid user name
+     */
+
+    // User name input
+    const userNameControl = this.userName;
+
+    console.log("Entro")
+
+    // If user name is null, is not touched or is valid
+
+    if (userNameControl && userNameControl.invalid) {
+      if (userNameControl.hasError('required')) {
+        this.userNameErrorSignal.set('Username is required.');
+        return;
+      }
+
+      if (userNameControl.hasError('maxlength')) {
+        this.userNameErrorSignal.set('Username must be less than 12 characters.');
+        return;
+      }
+    }
+
+    this.userNameErrorSignal.set('');
+  }
+
+  checkDescriptionErrors() {
+    const descriptionControl = this.description;
+
+    // If description is null, is not touched or is valid
+
+    if (descriptionControl && descriptionControl.touched && descriptionControl.invalid) {
+      if (descriptionControl.hasError('minlength')) {
+        this.descriptionErrorSignal.set('Description must be 20 characteres or more.');
+        return;
+      }
+
+      if (descriptionControl.hasError('maxlength')) {
+        this.descriptionErrorSignal.set('Description must be less than 500 characters.');
+        return;
+      }
+    }
+
+    this.descriptionErrorSignal.set('');
+  }
   ngAfterViewInit(): void {
     /**
      *  Gets and shows preview of selected user profile image
@@ -47,5 +110,30 @@ export class ProfileCreationComponent implements AfterViewInit {
 
       fileReader.readAsDataURL(image);
     });
+  }
+
+  checkAllErrors() {
+    this.userConfigurationForm.markAllAsTouched();
+    this.checkUserNameErrors();
+    this.checkDescriptionErrors();
+  }
+
+  onSubmit() {
+    this.checkAllErrors();
+
+    if (this.userConfigurationForm.invalid) {
+      return;
+    }
+  }
+
+  /**
+   * Getters for form elements
+   */
+  get userName() {
+    return this.userConfigurationForm.get('username');
+  }
+
+  get description() {
+    return this.userConfigurationForm.get('description');
   }
 }
