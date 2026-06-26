@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, input } from '@angular/core';
-import { AuthContainer } from "../components/auth-container/auth-container";
+import { AuthContainer } from '../components/auth-container/auth-container';
 
 @Component({
   selector: 'app-profile-creation-component',
@@ -8,29 +8,44 @@ import { AuthContainer } from "../components/auth-container/auth-container";
   styleUrls: ['./profile-creation-component.css'],
 })
 export class ProfileCreationComponent implements AfterViewInit {
-
   ngAfterViewInit(): void {
+    /**
+     *  Gets and shows preview of selected user profile image
+     */
+
+    // Input file for user to upload the image
     const userProfileImage = document.getElementById('file_input');
 
-    const img = document.getElementById("previsualization_image") as HTMLImageElement
+    // Image element for showing preview profile image
+    const img = document.getElementById('previsualization_image') as HTMLImageElement;
 
-    userProfileImage?.addEventListener('change', e => {
-      const imageInput = e.target as HTMLInputElement
-      const image = imageInput.files?.[0]
+    // Every time file input get's a new file
+    userProfileImage?.addEventListener('change', (e) => {
+      // Image input element
+      const imageInput = e.target as HTMLInputElement;
+      // Uploaded image
+      const image = imageInput.files?.[0];
 
-      if(!image){
-        img.src = "assets/profile/profile_dark.png";
-        return
+      // If image is null or empty
+      if (!image) {
+        // Default image is shown in previsualization
+        img.src = 'assets/profile/profile_dark.png';
+        return;
       }
 
-      const fileReader = new FileReader()
-      fileReader.onload = function( e ){
-        const file = e.target as FileReader
+      // Create file reader
+      const fileReader = new FileReader();
 
-        img.src = file.result as string
-      }
-      fileReader.readAsDataURL(image)
-    })
+      // When file reader is loaded
+      fileReader.onload = function (e) {
+        // Get's file reader
+        const file = e.target as FileReader;
 
+        // Update preview image to user uploaded image
+        img.src = file.result as string;
+      };
+
+      fileReader.readAsDataURL(image);
+    });
   }
 }
