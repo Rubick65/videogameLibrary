@@ -1,8 +1,9 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthContainer } from '../components/auth-container/auth-container';
 import { GenericButtonComponent } from "../components/generic-button-component/generic-button-component";
 import { ErrorMessgeComponent } from "../components/error-messge-component/error-messge-component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-component',
@@ -13,6 +14,8 @@ import { ErrorMessgeComponent } from "../components/error-messge-component/error
 export class RegisterComponent {
   // Indicates if the email is valid
   notValidEmail = false;
+
+  private router = inject(Router)
 
   // Signals for register form error messages
   userErrorMessage = signal('');
@@ -40,6 +43,10 @@ export class RegisterComponent {
     }
 
     this.registerForm.reset();
+
+    this.router.navigate(['/profileConfiguration'])
+
+    
   }
 
   checkUserNameError() {

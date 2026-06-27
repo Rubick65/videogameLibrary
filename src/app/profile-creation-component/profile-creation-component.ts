@@ -1,12 +1,14 @@
-import { Component, AfterViewInit, input, signal } from '@angular/core';
+import { Component, AfterViewInit, input, signal, inject } from '@angular/core';
 import { AuthContainer } from '../components/auth-container/auth-container';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GenericButtonComponent } from "../components/generic-button-component/generic-button-component";
 import { ErrorMessgeComponent } from '../components/error-messge-component/error-messge-component';
+import { Router } from '@angular/router';
+import { ImageContainerComponent } from "../components/image-container-component/image-container-component";
 
 @Component({
   selector: 'app-profile-creation-component',
-  imports: [AuthContainer, ReactiveFormsModule, GenericButtonComponent, ErrorMessgeComponent],
+  imports: [AuthContainer, ReactiveFormsModule, GenericButtonComponent, ErrorMessgeComponent, ImageContainerComponent],
   templateUrl: './profile-creation-component.html',
   styleUrls: ['./profile-creation-component.css'],
 })
@@ -15,11 +17,12 @@ export class ProfileCreationComponent implements AfterViewInit {
   userNameErrorSignal = signal<string>('');
   descriptionErrorSignal = signal<string>('');
 
+  private router = inject(Router)
+
   // User profile configuration form inputs
   userConfigurationForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.maxLength(12)]),
     description: new FormControl('', [
-      Validators.required,
       Validators.minLength(20),
       Validators.maxLength(500),
     ]),
@@ -33,10 +36,7 @@ export class ProfileCreationComponent implements AfterViewInit {
     // User name input
     const userNameControl = this.userName;
 
-    console.log("Entro")
-
     // If user name is null, is not touched or is valid
-
     if (userNameControl && userNameControl.invalid) {
       if (userNameControl.hasError('required')) {
         this.userNameErrorSignal.set('Username is required.');
@@ -124,6 +124,8 @@ export class ProfileCreationComponent implements AfterViewInit {
     if (this.userConfigurationForm.invalid) {
       return;
     }
+
+    this.router.navigate(['/platformsOfInterest'])
   }
 
   /**
