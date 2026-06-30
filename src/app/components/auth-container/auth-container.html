@@ -1,6 +1,8 @@
 <div class="auth-container"> 
 
-    <h2 id="auth-title">{{ title() }}</h2>
+    @if (title()) {
+        <h2 id="auth-title" style="text-decoration: underline; text-underline-offset: 10px;">{{ title() }}</h2>
+    }
 
     <ng-content></ng-content>
 

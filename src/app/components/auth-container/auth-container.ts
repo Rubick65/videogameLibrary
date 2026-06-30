@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-auth-container',
@@ -8,7 +8,8 @@ import { RouterLink } from "@angular/router";
   styleUrl: './auth-container.css',
 })
 export class AuthContainer {
-  title = input.required<string>();
-  linkRouter = input.required<string>();
+  // Common variables for component usage
+  title = input<string>();
+  linkRouter = input<string>();
   linkText = input<string>();
 }

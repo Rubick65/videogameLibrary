@@ -1,54 +1,21 @@
-    :host{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        width: 100vw;
-    }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  width: 300px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 
-    .login-form{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        width: 300px;
-        overflow-wrap: break-word; 
-        word-wrap: break-word;
-    }
-
-    .form-input{
-        padding: 12px 0px 12px 50px;
-        outline: none;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 85%;
-    }
-
-    .login-button{
-         padding: 10px;
-        background-color: rgb(225, 64, 158);
-        font-size: 16px;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .login-button:hover{
-        transform: scale(1.03);
-    }
-    .login-button:active{
-        transform: scale(0.97);
-    }
-    
-    .form-group {
-        position: relative;
-    }
-
-    .error_message{
-        color: red;
-    }
-   
-
+.form-input {
+  padding: 12px 0px 12px 50px;
+  outline: none;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 85%;
+}
+.form-group {
+  position: relative;
+}

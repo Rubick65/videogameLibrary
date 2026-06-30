@@ -1,0 +1,39 @@
+.search_form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+#gamepad_icon {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  size: 100%;
+  border-radius: 50%;
+  background-color: #2f2b70;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#input_container {
+  position: relative;
+}
+
+#input_gamepad_icon {
+  position: absolute;
+  margin-left: 8px;
+  top: 3px;
+  height: 35px;
+}
+
+#search_input {
+  padding: 12px 0 12px 50px;
+  outline: none;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: fit-content;
+  margin-bottom: 10px;
+}

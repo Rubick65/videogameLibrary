@@ -1,0 +1,67 @@
+<app-auth-container title="Edit Your Profile">
+  <app-image-container-component>
+    <label for="file_input" id="file_label">
+      <img
+        id="previsualization_image"
+        src="assets/profile/profile_dark.png"
+        alt="Select an image"
+      />
+    </label>
+
+    <input type="file" id="file_input" accept="image/*" style="display: none" hidden />
+  </app-image-container-component>
+
+  <form id="profile_form" [formGroup]="userConfigurationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <i
+        class="fas fa-user"
+        style="position: absolute; margin-left: 10px; top: 10px; font-size: 25px"
+      ></i>
+
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="profile_input"
+        formControlName="username"
+        placeholder="Username"
+        (input)="checkUserNameErrors()"
+        (blur)="checkUserNameErrors()"
+        required
+      />
+    </div>
+
+    @if (userNameErrorSignal()) {
+      <app-error-messge-component
+        errorMessage="{{ userNameErrorSignal() }}"
+      ></app-error-messge-component>
+    }
+
+    <div class="form-group">
+      <i
+        class="fa-solid fa-t"
+        style="position: absolute; margin-left: 10px; top: 10px; font-size: 25px"
+      ></i>
+
+      <textarea
+        form="profile_form"
+        id="description"
+        name="description"
+        class="description_input"
+        formControlName="description"
+        placeholder="Tell us about you!"
+        wrap="hard"
+        (input)="checkDescriptionErrors()"
+        (blur)="checkDescriptionErrors()"
+      ></textarea>
+    </div>
+
+    @if (descriptionErrorSignal()) {
+      <app-error-messge-component
+        errorMessage="{{ descriptionErrorSignal() }}"
+      ></app-error-messge-component>
+    }
+
+    <app-generic-button-component button_text="Continue"></app-generic-button-component>
+  </form>
+</app-auth-container>

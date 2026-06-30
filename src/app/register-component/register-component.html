@@ -1,81 +1,102 @@
-<app-auth-container title="Register" linkRouter="" linkText="Log In" >
-    
-    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<app-auth-container title="Register" linkRouter="" linkText="Log In">
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <i
+        class="fas fa-user"
+        id="username"
+        style="position: absolute; margin-left: 15px; top: 14px; font-size: 20px"
+      ></i>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Username"
+        class="form-input"
+        formControlName="username"
+        (input)="checkUserNameError()"
+        (blur)="checkUserNameError()"
+        required
+      />
+    </div>
 
-      <div class="form-group" >
-        <i class="fas fa-user" id="username" style="
-          position:absolute;
-          margin-left: 15px;
-          top: 14px;
-          font-size: 20px;
-          "></i>
-        <input type="text" id="username" name="username" placeholder="Username" class="form-input" formControlName="username" 
-        (input)="checkUserNameError()"  
-        (blur)="checkUserNameError()" required>
-      </div>
+    @if (userErrorMessage()) {
+      <app-error-messge-component
+        errorMessage="{{ userErrorMessage() }}"
+      ></app-error-messge-component>
+    }
 
-      @if ((userErrorMessage())) {
-        <div class="error_message"> 
-        {{ userErrorMessage() }}
-      </div>
-      }
-      
+    <div class="form-group">
+      <i
+        class="fas fa-envelope"
+        style="position: absolute; margin-left: 15px; top: 14px; font-size: 20px"
+      ></i>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        class="form-input"
+        formControlName="email"
+        (input)="checkEmailErrors()"
+        (blur)="checkAllEmailErrors()"
+        required
+      />
+    </div>
 
-      <div class="form-group">
-        <i class="fas fa-envelope" style="
-          position:absolute;
-          margin-left: 15px;
-          top: 14px;
-          font-size: 20px;
-          "></i>
-        <input type="email" id="email" name="email" placeholder="Email" class="form-input"  formControlName="email" 
-        (input)="checkEmailErrors()" 
-        (blur)="checkAllEmailErrors()" required>
-      </div>
+    @if (emailErrorMessage()) {
+      <app-error-messge-component
+        errorMessage="{{ emailErrorMessage() }}"
+      ></app-error-messge-component>
+    }
 
-      @if ((emailErrorMessage())) {
-        <div class="error_message"> 
-        {{ emailErrorMessage() }}
-      </div>
-      }
-      
-      <div class="form-group">
-        <i class="fas fa-lock" style="
-          position:absolute;
-          margin-left: 15px;
-          top: 14px;
-          font-size: 20px;
-          "></i>
-        <input type="password" id="password" name="password" placeholder="Password" class="form-input"  formControlName="password"
-        (input)="checkPasswordError()" 
-        (blur)="checkAllPasswordErrors()" required>
-      </div>
+    <div class="form-group">
+      <i
+        class="fas fa-lock"
+        style="position: absolute; margin-left: 15px; top: 14px; font-size: 20px"
+      ></i>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        class="form-input"
+        formControlName="password"
+        (input)="checkPasswordError()"
+        (blur)="checkAllPasswordErrors()"
+        required
+      />
+    </div>
 
-       @if ((passwordErrorMessage())) {
-        <div class="error_message"> 
-        {{ passwordErrorMessage() }}
-      </div>
-      }
+    @if (passwordErrorMessage()) {
+      <app-error-messge-component
+        errorMessage="{{ passwordErrorMessage() }}"
+      ></app-error-messge-component>
+    }
 
-       <div class="form-group">
-        <i class="fas fa-lock" style="
-          position:absolute;
-          margin-left: 15px;
-          top: 14px;
-          font-size: 20px;
-          "></i>
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="form-input"  formControlName="confirmPassword" 
-        (input)="checkPasswordMatch()" 
-        (blur)="checkPasswordMatch()" required>
-      </div>
+    <div class="form-group">
+      <i
+        class="fas fa-lock"
+        style="position: absolute; margin-left: 15px; top: 14px; font-size: 20px"
+      ></i>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        class="form-input"
+        formControlName="confirmPassword"
+        (input)="checkPasswordMatch()"
+        (blur)="checkPasswordMatch()"
+        required
+      />
+    </div>
 
-      @if (confirmPaswordErrorMessage()) {
-        <div class="error_message"> 
-        {{ confirmPaswordErrorMessage() }}
-      </div>
-      }
+    @if (confirmPaswordErrorMessage()) {
+      <app-error-messge-component
+        errorMessage="{{ confirmPaswordErrorMessage() }}"
+      ></app-error-messge-component>
+    }
 
-      <button type="submit" class="register-button" (click)="checkAllErrors()">Sign Up</button>
-    </form> 
-
+    <app-generic-button-component button_text="Sing Up"></app-generic-button-component>
+  </form>
 </app-auth-container>
