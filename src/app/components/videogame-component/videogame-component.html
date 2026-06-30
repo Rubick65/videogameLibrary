@@ -1,0 +1,22 @@
+<div class="videgame_container" (mouseover)="mouseOver()" (mouseleave)="mouseOut()">
+  <div class="videogame_image_container">
+    <img class="videogame_image" src="assets/videogame/testImage.jpg" alt="Videogame image" />
+  </div>
+
+  <div id="videogame_social_data">
+    @for (icon of iconsData; track icon.id) {
+      <div class="icon_data_container">
+        @if (icon.number) {
+          <b class="icon_number_data">{{ icon.number }}</b>
+        }
+        <img class="icon_image" src="{{ icon.src }}" alt="Icon image" />
+      </div>
+    }
+  </div>
+
+  @if (hover()) {
+    <div class="videgame_descrtiption_container">
+      <p class="videogame_descritpion">This is videogame description</p>
+    </div>
+  }
+</div>
