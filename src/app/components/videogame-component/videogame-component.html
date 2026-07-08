@@ -1,22 +1,39 @@
-<div class="videgame_container" (mouseover)="mouseOver()" (mouseleave)="mouseOut()">
-  <div class="videogame_image_container">
+<article class="videogame_container">
+  <div class="videogame_image_container" (mouseenter)="mouseOver()" (mouseleave)="mouseOut()">
     <img class="videogame_image" src="assets/videogame/testImage.jpg" alt="Videogame image" />
-  </div>
 
-  <div id="videogame_social_data">
-    @for (icon of iconsData; track icon.id) {
-      <div class="icon_data_container">
-        @if (icon.number) {
-          <b class="icon_number_data">{{ icon.number }}</b>
-        }
-        <img class="icon_image" src="{{ icon.src }}" alt="Icon image" />
-      </div>
-    }
-  </div>
-
-  @if (hover()) {
-    <div class="videgame_descrtiption_container">
-      <p class="videogame_descritpion">This is videogame description</p>
+    <div class="videogame_social_data">
+      @for (icon of iconsData; track icon.id) {
+        <div class="icon_data_container">
+          <img class="icon_image" src="{{ icon.src }}" alt="Icon image" />
+          @if (icon.number) {
+            <div class="icon_number_container">
+              <b class="icon_number_data">{{ icon.number }}</b>
+            </div>
+          }
+        </div>
+      }
     </div>
-  }
-</div>
+
+    <div class="videogame_description_container">
+      <div class="videogame_description_content">
+        <p class="videogame_description">Videogame Description</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="out_image_container">
+    <span class="videogame_title">Middle earth shadow of mordor</span>
+
+    <div class="add_icon_container">
+      <div class="add_icon_image_container">
+        <img
+          class="add_icon_image"
+          src="{{ 'assets/icons/addToLibrary.svg' }}"
+          alt="Icon image"
+          (click)="addToLibraryIconClick($event)"
+        />
+      </div>
+    </div>
+  </div>
+</article>
