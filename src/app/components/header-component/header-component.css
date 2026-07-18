@@ -32,7 +32,8 @@
   margin-right: 20px;
 }
 
-.header_icon {
+.header_icon,
+#search_icon {
   width: 35px;
   height: 35px;
   fill: white;
@@ -62,10 +63,25 @@ h1 {
   border-radius: 50px;
   border: none;
   font-size: 20px;
-  padding-left: 10px;
+  padding-left: 45px;
   padding-right: 10px;
 }
 
-#icon_group{
-   position: relative;
+#icon_group {
+  position: relative;
+}
+
+#search_icon_container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+#search_icon {
+  cursor: unset;
+  position: absolute;
+  margin-right: 30%;
+  top: 0px; 
+  fill: black;
 }
