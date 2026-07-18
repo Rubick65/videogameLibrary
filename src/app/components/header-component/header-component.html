@@ -1,3 +1,16 @@
-<header id="header"> 
+<header id="header">
   <h1>Videogame Library</h1>
+
+  <nav id="nav_bar">
+    @for (icon of navIcons; track icon.id) {
+      <svg
+        [attr.xmlns]="icon.xmlns"
+        viewBox="0 -960 960 960"
+        routerLink="{{ icon.route }}"
+        class="header_icon"
+      >
+        <path [attr.d]="icon.path" />
+      </svg>
+    }
+  </nav>
 </header>

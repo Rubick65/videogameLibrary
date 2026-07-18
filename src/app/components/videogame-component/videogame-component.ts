@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { IconData } from './VideogameInterface';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { VideogamePreview } from '../../home-component/VideogameInterface';
 
 @Component({
   selector: 'app-videogame-component',
@@ -8,13 +8,12 @@ import { IconData } from './VideogameInterface';
   styleUrl: './videogame-component.css',
 })
 export class VideogameComponent {
-  hover = signal(false);
-  private videogameDescriptionContainer = document.querySelector('.videogame_description_container') as HTMLDivElement;
+  @Input() videogame!: VideogamePreview;
+  @Output() favCliked = new EventEmitter<VideogamePreview>();
+  @Output() likeCliked = new EventEmitter<VideogamePreview>();
+  @Output() addLibraryCliked = new EventEmitter<VideogamePreview>();
 
-  iconsData: IconData[] = [
-    { id: 1, src: 'assets/icons/likeGame.svg', number: 5 },
-    { id: 2, src: 'assets/icons/gameFav.svg', number: 10},
-  ];
+  hover = signal(false);
 
   mouseOver() {
     this.hover.set(true);
@@ -24,15 +23,18 @@ export class VideogameComponent {
     this.hover.set(false);
   }
 
-  addToLibraryIconClick(event: MouseEvent) {
-    const target  = event.target as HTMLImageElement;
+  changeFavState() {
+    this.videogame.fav = !this.videogame.fav;
+    this.favCliked.emit(this.videogame);
+  }
 
-    if (target.src.includes('assets/icons/addToLibrary.svg')) {
-      target.src = 'assets/icons/removeFromLibrary.svg';
-    }else{
-      target.src = 'assets/icons/addToLibrary.svg';
-    }
+  changelikeState() {
+    this.videogame.like = !this.videogame.like;
+    this.likeCliked.emit(this.videogame);
+  }
 
-    
+  addToLibraryIconClick() {
+    this.videogame.isInLibrary = !this.videogame.isInLibrary;
+    this.addLibraryCliked.emit(this.videogame);
   }
 }

@@ -1,0 +1,15 @@
+<div id="videogames_data_body_container">
+  <div id="videogame_data_main_container">
+    @for (videogame of videogamesData; track videogame.id) {
+      <app-videogame-component
+        [videogame]="videogame"
+        (favCliked)="onFavCliked($event)"
+        (likeCliked)="onLikeCliked($event)"
+        (addLibraryCliked)="onAddToLibraryCliked($event)"
+      >
+      </app-videogame-component>
+    }
+  </div>
+</div>
+ß
+ß

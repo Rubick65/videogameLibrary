@@ -34,8 +34,8 @@ export const routes: Routes = [
   {
     path: 'videogameTest',
     loadComponent: () => {
-      return import('./components/videogame-component/videogame-component').then(
-        (m) => m.VideogameComponent,
+      return import('./home-component/home-component').then(
+        (m) => m.HomeComponent,
       );
     },
   },
