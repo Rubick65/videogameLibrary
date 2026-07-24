@@ -1,0 +1,68 @@
+<article class="videogame_container">
+  <div class="videogame_image_container" (mouseenter)="mouseOver()" (mouseleave)="mouseOut()">
+    <img class="videogame_image" src="{{ videogame.src }}" alt="Videogame image" />
+    <div class="videogame_social_data">
+      <div class="icon_data_container">
+        <svg
+          class="icon_image"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          [style.fill]="videogame.fav ? 'gold' : 'white'"
+          (click)="changeFavState()"
+        >
+          <path
+            d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"
+          />
+        </svg>
+
+        <div class="icon_number_container">
+          <b class="icon_number_data">{{ videogame.iconsData[0].number }}</b>
+        </div>
+      </div>
+
+      <div class="icon_data_container">
+        <svg
+          class="icon_image"
+          id="like_icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+          [style.fill]="videogame.like ? 'black' : 'rgb(48,92,222)'"
+          (click)="changelikeState()"
+        >
+          <path
+            d="M160-240q-33 0-56.5-23.5T80-320v-320q0-33 23.5-56.5T160-720h640q33 0 56.5 23.5T880-640v320q0 33-23.5 56.5T800-240H160Zm120-120h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80Zm342.5-17.5Q640-395 640-420t-17.5-42.5Q605-480 580-480t-42.5 17.5Q520-445 520-420t17.5 42.5Q555-360 580-360t42.5-17.5Zm120-120Q760-515 760-540t-17.5-42.5Q725-600 700-600t-42.5 17.5Q640-565 640-540t17.5 42.5Q675-480 700-480t42.5-17.5Z"
+          />
+        </svg>
+
+        <div class="icon_number_container">
+          <b class="icon_number_data">{{ videogame.iconsData[1].number }}</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="videogame_description_container">
+      <div class="videogame_description_content">
+        <p class="videogame_description">{{ videogame.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="out_image_container">
+    <span class="videogame_title">{{ videogame.title }}</span>
+
+    <div class="add_icon_container">
+      <div class="add_icon_image_container">
+        <img
+          class="add_icon_image"
+          [src]="
+            videogame.isInLibrary
+              ? 'assets/icons/addToLibrary.svg'
+              : 'assets/icons/removeFromLibrary.svg'
+          "
+          alt="Icon image"
+          (click)="addToLibraryIconClick()"
+        />
+      </div>
+    </div>
+  </div>
+</article>

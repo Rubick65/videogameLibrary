@@ -1,8 +1,8 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthContainer } from '../components/auth-container/auth-container';
-import { GenericButtonComponent } from "../components/generic-button-component/generic-button-component";
-import { ErrorMessgeComponent } from "../components/error-messge-component/error-messge-component";
+import { GenericButtonComponent } from '../components/generic-button-component/generic-button-component';
+import { ErrorMessgeComponent } from '../components/error-messge-component/error-messge-component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class RegisterComponent {
   // Indicates if the email is valid
   notValidEmail = false;
 
-  private router = inject(Router)
+  private router = inject(Router);
 
   // Signals for register form error messages
   userErrorMessage = signal('');
@@ -36,17 +36,15 @@ export class RegisterComponent {
      * If all form components are valid submits information to server
      */
 
-    this.checkAllErrors()
+    this.checkAllErrors();
 
-    if(this.registerForm.invalid){
-      return
+    if (this.registerForm.invalid) {
+      return;
     }
 
     this.registerForm.reset();
 
-    this.router.navigate(['/profileConfiguration'])
-
-    
+    this.router.navigate(['/profileConfiguration']);
   }
 
   checkUserNameError() {
@@ -151,8 +149,7 @@ export class RegisterComponent {
     const confirmPasswordControl = this.confirmPasswordFormControl;
 
     // If password and confirm password exists
-    if (confirmPasswordControl && passwordControl)  {
-
+    if (confirmPasswordControl && passwordControl) {
       // Checks if password are
       if (confirmPasswordControl.value != passwordControl.value) {
         this.confirmPaswordErrorMessage.set('Passwords do not match.');

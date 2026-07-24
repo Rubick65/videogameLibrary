@@ -30,4 +30,16 @@ export const routes: Routes = [
       );
     },
   },
+
+  {
+    path: 'home',
+    loadComponent: () => {
+      return import('./home-component/home-component').then(
+        (m) => m.HomeComponent,
+      );
+    },
+  },
+
+  
+
 ];
