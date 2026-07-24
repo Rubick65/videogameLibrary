@@ -32,7 +32,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'videogameTest',
+    path: 'home',
     loadComponent: () => {
       return import('./home-component/home-component').then(
         (m) => m.HomeComponent,

@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { NavIcon } from './NavIconsInterface';
-import { RouterLink } from '@angular/router';
+import {Router, RouterLink } from '@angular/router';
+import { SearchBarComponent } from "../search-bar-component/search-bar-component";
 
 @Component({
   selector: 'app-header-component',
-  imports: [RouterLink],
+  imports: [RouterLink, SearchBarComponent],
   templateUrl: './header-component.html',
   styleUrl: './header-component.css',
 })
 export class HeaderComponent {
+  constructor(readonly router: Router) {}
+
   navIcons: NavIcon[] = [
     {
       id: 1,
