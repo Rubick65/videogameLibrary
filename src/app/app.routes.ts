@@ -34,12 +34,15 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => {
-      return import('./home-component/home-component').then(
-        (m) => m.HomeComponent,
+      return import('./home-component/home-component').then((m) => m.HomeComponent);
+    },
+  },
+  {
+    path: 'userGameLibrary',
+    loadComponent: () => {
+      return import('./game-library-component/game-library-component').then(
+        (m) => m.GameLibraryComponent,
       );
     },
   },
-
-  
-
 ];
