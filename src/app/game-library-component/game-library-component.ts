@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { GameListComponent } from '../components/game-list-component/game-list-component';
 
 import { IconData, VideogamePreview } from '../home-component/VideogameInterface';
+import { SearchBarComponent } from "../components/search-bar-component/search-bar-component";
 
 @Component({
   selector: 'app-game-library-component',
-  imports: [GameListComponent],
+  imports: [GameListComponent, SearchBarComponent],
   templateUrl: './game-library-component.html',
   styleUrl: './game-library-component.css',
 })
