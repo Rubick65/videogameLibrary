@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { NavIcon } from './NavIconsInterface';
 import {Router, RouterLink } from '@angular/router';
-import { SearchBarComponent } from "../search-bar-component/search-bar-component";
 
 @Component({
   selector: 'app-header-component',
-  imports: [RouterLink, SearchBarComponent],
+  imports: [RouterLink],
   templateUrl: './header-component.html',
   styleUrl: './header-component.css',
 })

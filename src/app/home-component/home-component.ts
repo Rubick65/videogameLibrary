@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { IconData, VideogamePreview } from './VideogameInterface';
 import { GameListComponent } from '../components/game-list-component/game-list-component';
+import { SearchBarComponent } from "../components/search-bar-component/search-bar-component";
 @Component({
   selector: 'app-home-component',
-  imports: [GameListComponent],
+  imports: [GameListComponent, SearchBarComponent],
   templateUrl: './home-component.html',
   styleUrl: './home-component.css',
 })
