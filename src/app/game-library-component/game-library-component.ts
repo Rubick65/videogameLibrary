@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { IconData, VideogamePreview } from './VideogameInterface';
 import { GameListComponent } from '../components/game-list-component/game-list-component';
-import { SearchBarComponent } from '../components/search-bar-component/search-bar-component';
+
+import { IconData, VideogamePreview } from '../home-component/VideogameInterface';
+import { SearchBarComponent } from "../components/search-bar-component/search-bar-component";
+
 @Component({
-  selector: 'app-home-component',
+  selector: 'app-game-library-component',
   imports: [GameListComponent, SearchBarComponent],
-  templateUrl: './home-component.html',
-  styleUrl: './home-component.css',
+  templateUrl: './game-library-component.html',
+  styleUrl: './game-library-component.css',
 })
-export class HomeComponent {
+export class GameLibraryComponent {
   iconsData: IconData[] = [
     { id: 1, number: 5 },
     { id: 2, number: 10 },

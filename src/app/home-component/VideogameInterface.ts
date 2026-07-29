@@ -9,6 +9,14 @@ export interface VideogamePreview {
   isInLibrary: boolean;
 }
 
+export interface VideogameExtendedData {
+  title: string;
+  description: string;
+  date: string;
+  platforms: String[];
+}
+
+
 export interface IconData {
   readonly id: number;
   number?: number;

@@ -1,0 +1,64 @@
+
+:host {
+  display: flex;
+  align-items: flex-start;
+}
+
+#videogame_general_text_container {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 30px;
+  background-color: rgba(59, 0, 67, 0.8);
+  /* background: linear-gradient(-70deg, rgba(162, 69, 255, 0.7), rgba(127, 0, 255, 0.7)); linear gradient like auth container
+  and header */
+  color: white;
+  width: 500px;
+  height: 429px;
+}
+
+#videogame_text_container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+
+  gap: 20px;
+}
+
+#videogame_platforms_date_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  font-size: larger;
+}
+
+#videogame_platforms_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+#videogame_title_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#videogame_description_container {
+  display: flex;
+  width: 100%;
+  max-height: 290px;
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+#videogame_description {
+  margin: 0;
+  line-height: 1.7;
+  margin-right: 15px;
+}
