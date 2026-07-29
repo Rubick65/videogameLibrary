@@ -1,0 +1,23 @@
+<div id="videogame_general_text_container">
+  <div id="videogame_text_container">
+    <div id="videogame_platforms_date_container">
+      <div id="videogame_platforms_container">
+        @for (platform of videogameExtraData.platforms; track $index) {
+          <b class="videogame_platform">{{ platform }}</b>
+        }
+      </div>
+
+      <div id="videogame_date_container">
+        <b id="videgame_realese_date">{{ videogameExtraData.date }}</b>
+      </div>
+    </div>
+    <div id="videogame_title_container">
+      <b id="videogame_title">{{ videogameExtraData.title }} </b>
+    </div>
+
+    <div id="videogame_description_container">
+      <p id="videogame_description">{{ videogameExtraData.description }}</p>
+
+    </div>
+  </div>
+</div>

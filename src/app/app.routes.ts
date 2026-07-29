@@ -45,4 +45,12 @@ export const routes: Routes = [
       );
     },
   },
+  {
+    path: 'videogameExpandedData',
+    loadComponent: () => {
+      return import('./videogame-data-component/videogame-data-component').then(
+        (m) => m.VideogameDataComponent,
+      );
+    },
+  },
 ];
