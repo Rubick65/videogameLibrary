@@ -21,3 +21,12 @@ export interface IconData {
   readonly id: number;
   number?: number;
 }
+
+export interface VideogameComment {
+  readonly id: number;
+  readonly user: string;
+  readonly userProfilePicture: string;
+  readonly comment: string;
+  readonly rating: number;
+  readonly date: string;
+}

@@ -4,12 +4,14 @@ import {
   IconData,
   VideogamePreview,
   VideogameExtendedData,
+  VideogameComment,
 } from '../../home-component/VideogameInterface';
 import { VideogameTextDataComponent } from '../videogame-text-data-component/videogame-text-data-component';
+import { VideogameCommentsComponent } from '../videogame-comments-component/videogame-comments-component';
 
 @Component({
   selector: 'app-videogame-general-data-component',
-  imports: [VideogameTextDataComponent],
+  imports: [VideogameTextDataComponent, VideogameCommentsComponent],
   templateUrl: './videogame-general-data-component.html',
   styleUrl: './videogame-general-data-component.css',
 })
@@ -39,4 +41,23 @@ export class VideogameGeneralDataComponent {
     date: '2014',
     platforms: this.platforms,
   };
+
+  videgameComments: VideogameComment[] = [
+    {
+      id: 1,
+      user: 'Ruben',
+      userProfilePicture: 'assets/profile/defaultProfileImage.jpeg',
+      comment: 'Me ha encantado este juego, lo recomiendo',
+      rating: 5,
+      date: '2023-06-01',
+    },
+    {
+      id: 2,
+      user: 'Juan',
+      userProfilePicture: 'assets/profile/defaultProfileImage.jpeg',
+      comment: 'No me ha gustado mucho, esperaba más de este juego',
+      rating: 2,
+      date: '2023-06-02',
+    },
+  ];
 }

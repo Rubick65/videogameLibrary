@@ -1,7 +1,28 @@
 <div id="general_data_container">
-  <div id="videogame_cover_image_container">
-    <img src="{{ videogamePreview.src }}" alt="Videogame Image" id="videogame_image">
+  <div id="videogame_data_container">
+    <div id="videogame_cover_image_container">
+      <img src="{{ videogamePreview.src }}" alt="Videogame Image" id="videogame_image" />
+    </div>
+
+    <app-videogame-text-data-component
+      [videogameExtraData]="videogameData"
+    ></app-videogame-text-data-component>
   </div>
 
-  <app-videogame-text-data-component [videogameExtraData]="videogameData"></app-videogame-text-data-component>
+  <div id="comment_section">
+    <div id="comment_header">
+      <h3>Comments</h3>
+
+      <h3 id="comment_count">Reviews: {{ videgameComments.length }}</h3>
+    </div>
+    <app-videogame-comments-component
+      [comments]="videgameComments"
+    ></app-videogame-comments-component>
+
+    <div id="new_comment_button_container">
+      <button id="new_comment_button">
+        New Comment
+      </button>
+    </div>
+  </div>
 </div>
