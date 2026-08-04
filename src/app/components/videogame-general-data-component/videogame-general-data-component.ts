@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 import {
   IconData,
@@ -16,6 +16,8 @@ import { VideogameCommentsComponent } from '../videogame-comments-component/vide
   styleUrl: './videogame-general-data-component.css',
 })
 export class VideogameGeneralDataComponent {
+  @Output() showNewCommentComponent = new EventEmitter<void>();
+
   iconsData: IconData[] = [
     { id: 1, number: 5 },
     { id: 2, number: 10 },
@@ -60,4 +62,8 @@ export class VideogameGeneralDataComponent {
       date: '2023-06-02',
     },
   ];
+
+  onShowNewCommentComponent() {
+    this.showNewCommentComponent.emit();
+  }
 }

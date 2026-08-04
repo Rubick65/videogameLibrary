@@ -1,5 +1,9 @@
 <div id="game_data_container">
-    <app-videogame-general-data-component></app-videogame-general-data-component>
+  <div id="add_new_comment_background" [style.visibility]="newCommentDisplayed ? 'visible' : 'hidden'" (click)="changeNewCommentDisplayed()">
+    <app-new-comment-component></app-new-comment-component>
 
-    <app-videogame-comments-component></app-videogame-comments-component>
+  </div>
+  <app-videogame-general-data-component (showNewCommentComponent)="changeNewCommentDisplayed()"></app-videogame-general-data-component>
+
+  <app-videogame-comments-component></app-videogame-comments-component>
 </div>
