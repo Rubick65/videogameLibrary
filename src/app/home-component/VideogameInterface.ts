@@ -30,3 +30,9 @@ export interface VideogameComment {
   readonly rating: number;
   readonly date: string;
 }
+
+export interface  UserData {
+  readonly id: number;
+  readonly userName: string;
+  readonly userProfilePicture: string;
+}
