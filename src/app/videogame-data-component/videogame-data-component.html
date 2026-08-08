@@ -1,6 +1,6 @@
 <div id="game_data_container">
   <div id="add_new_comment_background" [style.visibility]="newCommentDisplayed ? 'visible' : 'hidden'" (click)="changeNewCommentDisplayed()">
-    <app-new-comment-component></app-new-comment-component>
+    <app-new-comment-component (click)="$event.stopPropagation()" (closeComment)="changeNewCommentDisplayed()"></app-new-comment-component>
 
   </div>
   <app-videogame-general-data-component (showNewCommentComponent)="changeNewCommentDisplayed()"></app-videogame-general-data-component>

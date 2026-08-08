@@ -1,28 +1,46 @@
-<div id="new_comment_background">
-  <div id="new_comment_container">
-    <div id="new_comment_raiting_container">
-      @for (_ of stars; track $index) {
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="40px"
-          viewBox="0 -960 960 960"
-          width="40px"
-          fill="#e3e3e3"
-        >
-          <path
-            d="M440-629v-17q-44-13-72-49.5T340-780q0-58 41-99t99-41q58 0 99 41t41 99q0 48-28 84.5T520-646v17l280 161q19 11 29.5 29.5T840-398v76q0 22-10.5 40.5T800-252L520-91q-19 11-40 11t-40-11L160-252q-19-11-29.5-29.5T120-322v-76q0-22 10.5-40.5T160-468l280-161ZM272-440l208 120 208-120-168-97v137h-80v-137l-168 97Z"
-          />
-        </svg>
-      }
+<div class="videogame_comment_container">
+  <div class="comment_container">
+    <div id="cancel_x_container">
+      <p id="cancel_x" (click)="closeCommentAction()">x</p>
+    </div>
+    <div class="general_commment_data_container">
+      <div class="videogame_headline_start_data">
+        <div class="user_general_grade">
+          @for (_ of stars; track $index) {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e3e3e3"
+            >
+              <path
+                d="M440-629v-17q-44-13-72-49.5T340-780q0-58 41-99t99-41q58 0 99 41t41 99q0 48-28 84.5T520-646v17l280 161q19 11 29.5 29.5T840-398v76q0 22-10.5 40.5T800-252L520-91q-19 11-40 11t-40-11L160-252q-19-11-29.5-29.5T120-322v-76q0-22 10.5-40.5T160-468l280-161ZM272-440l208 120 208-120-168-97v137h-80v-137l-168 97Z"
+              />
+            </svg>
+          }
+        </div>
+        <div class="user_data">
+          <div class="user_avatar">
+            <img
+              src="{{ userProfileData.userProfilePicture }}"
+              alt="User Avatar"
+              class="user_avatar_image"
+            />
+          </div>
+          <div class="comment_user_name">{{ userProfileData.userName }}</div>
+        </div>
+      </div>
+
+      <div class="comment_date">{{ getCurrentDate() }}</div>
     </div>
 
-    <div id="new_comment_text_container">
-      <textarea id="new_comment_text" placeholder="Write your comment here..."></textarea>
+    <div class="comment_text_container">
+      <textarea class="comment_textarea" placeholder="Write your comment here..."></textarea>
     </div>
+  </div>
 
-    <div id="new_comment_buttons_container">
-      <button class="new_comment_button" id="new_comment_cancel_button">Cancel</button>
-      <button class="new_comment_button" id="new_comment_submit_button">Submit</button>
-    </div>
+  <div class="comment_buttons_container">
+    <button class="comment_button" id="submit_button">Publish</button>
   </div>
 </div>
