@@ -1,0 +1,36 @@
+<div id="verification_code_screen_container">
+  <div id="verification_code_background">
+    <div id="verifcation_code_container">
+      <div id="title_container">
+        <h1 id="title">Verification Code</h1>
+      </div>
+
+      <div id="verification_code_message_container">
+        <p id="verification_message">A verification code was sent to your e-mail</p>
+      </div>
+
+      <div id="verification_code_input_container">
+        <label for="verification_code_input" id="input_label">
+          <div id="verification_code_characters_container">
+            @for (character of characters; track $index) {
+              <div class="verification_code_character">
+                {{ character() }}
+              </div>
+            }
+          </div>
+        </label>
+        <input
+          type="text"
+          name="verification_code_input"
+          id="verification_code_input"
+          maxlength="4"
+          (input)="onCharacterInput($event)"
+        />
+      </div>
+
+      <div id="resend_verification_code_container">
+        <a id="resend_verification_code">Resend verification code</a>
+      </div>
+    </div>
+  </div>
+</div>

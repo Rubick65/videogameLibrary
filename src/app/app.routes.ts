@@ -14,19 +14,20 @@ export const routes: Routes = [
       return import('./register-component/register-component').then((m) => m.RegisterComponent);
     },
   },
+
+  {
+    path: 'verificationCode',
+    loadComponent: () => {
+      return import('./check-verification-code-component/check-verification-code-component').then(
+        (m) => m.CheckVerificationCodeComponent,
+      );
+    },
+  },
   {
     path: 'profileConfiguration',
     loadComponent: () => {
       return import('./profile-creation-component/profile-creation-component').then(
         (m) => m.ProfileCreationComponent,
-      );
-    },
-  },
-  {
-    path: 'platformsOfInterest',
-    loadComponent: () => {
-      return import('./platforms-of-interest/platforms-of-interest').then(
-        (m) => m.PlatformsOfInterest,
       );
     },
   },
