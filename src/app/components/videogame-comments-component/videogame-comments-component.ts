@@ -8,10 +8,7 @@ import { VideogameComment } from '../../home-component/VideogameInterface';
   styleUrl: './videogame-comments-component.css',
 })
 export class VideogameCommentsComponent {
-
   @Input() comments!: VideogameComment[];
-  
+
   readonly stars = [0, 1, 2, 3, 4];
-
-
 }
