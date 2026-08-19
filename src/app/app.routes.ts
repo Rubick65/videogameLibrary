@@ -54,4 +54,12 @@ export const routes: Routes = [
       );
     },
   },
+  {
+    path: 'verificationToken',
+    loadComponent: () => {
+      return import('./verfication-token-component/verfication-token-component').then(
+        (m) => m.VerficationTokenComponent,
+      );
+    },
+  },
 ];
